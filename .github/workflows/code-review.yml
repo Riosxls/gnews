@@ -2,7 +2,7 @@ name: Gemini Code Analysis
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize]
 
 jobs:
   analyze:
@@ -24,7 +24,7 @@ jobs:
           import os
           import google.generativeai as genai
 
-          genai.configure(api_key=os.environ["AI_API_KEY"])
+          genai.configure(api_key=os.environ["GEMINI_API_KEY"])
           model = genai.GenerativeModel('gemini-2.5-flash')
 
           # Captura as mudanças do PR (diff)
